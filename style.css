@@ -1,0 +1,234 @@
+/* ===========================
+   FUENTE GOT
+=========================== */
+@font-face {
+  font-family: 'GOT';
+  src: url('./font/got.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ===========================
+   VARIABLES
+=========================== */
+:root {
+  --blanco-hueso: #FCFEF0;
+  --naranja: #B9540C;
+  --azul-hielo: #9bbcff;
+  --gris-oscuro: #111;
+  --gris-medio: #222;
+  --radius: 15px;
+  --shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* ===========================
+   BASE
+=========================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--blanco-hueso);
+  font-family: Arial, sans-serif;
+  color: #222;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  background-color: #fff;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  flex: 1;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+.ficha-header {
+  background: var(--naranja);
+  padding: 25px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: -40px -40px 0 -40px;
+}
+
+.ficha-header h1 {
+  font-family: 'GOT', serif;
+  color: #fff;
+  font-size: 30px;
+  letter-spacing: 2px;
+}
+
+.icono-luna {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.icono-luna::after {
+  content: '';
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  background-color: #fff;
+  border-radius: 50%;
+  top: -5px;
+  right: 5px;
+}
+
+/* ===========================
+   PERFIL
+=========================== */
+.perfil-principal {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 30px 0;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 30px;
+}
+
+.foto-perfil {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 5px solid var(--naranja);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.nombre-principal {
+  font-family: 'GOT', serif;
+  font-size: 34px;
+  color: #111;
+  letter-spacing: 2px;
+}
+
+/* ===========================
+   INFO
+=========================== */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.info-item {
+  background-color: var(--blanco-hueso);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: var(--shadow);
+}
+
+.info-label {
+  font-family: 'GOT', serif;
+  color: var(--naranja);
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.info-valor {
+  font-size: 17px;
+  color: #222;
+}
+
+/* ===========================
+   PROYECTOS
+=========================== */
+.repositorios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.tarjeta-repo {
+  background-color: var(--blanco-hueso);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-repo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.tarjeta-repo img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.tarjeta-repo h3 {
+  font-family: 'GOT', serif;
+  font-size: 16px;
+  color: var(--naranja);
+  margin: 10px 0;
+}
+
+.tarjeta-repo p a {
+  color: var(--gris-oscuro);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.tarjeta-repo p a:hover {
+  color: var(--naranja);
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+  background-color: var(--gris-medio);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  border-radius: 0 0 var(--radius) var(--radius);
+  margin: 40px -40px -40px -40px;
+  font-family: 'GOT', serif;
+  letter-spacing: 1px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 768px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .repositorios-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .perfil-principal {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .foto-perfil {
+    margin-bottom: 15px;
+  }
+}
