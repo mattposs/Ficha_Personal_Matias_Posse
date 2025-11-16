@@ -34,7 +34,7 @@ body {
   background-color: var(--blanco-hueso);
   font-family: Arial, sans-serif;
   color: #222;
-  padding: 20px;
+  padding: 0;      /* ✔ margen eliminado */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -42,14 +42,14 @@ body {
 
 main {
   background-color: #fff;
-  max-width: 900px;
-  margin: 0 auto;
+  width: 95%;
+  max-width: 2000px;
+  margin: 40px auto;
   padding: 40px;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   flex: 1;
 }
-
 /* ===========================
    HEADER
 =========================== */
@@ -69,27 +69,13 @@ main {
   font-size: 30px;
   letter-spacing: 2px;
 }
-
 .icono-luna {
-  width: 40px;
-  height: 40px;
-  border: 3px solid #fff;
-  border-radius: 50%;
-  position: relative;
-  overflow: hidden;
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff; 
 }
-
-.icono-luna::after {
-  content: '';
-  position: absolute;
-  width: 35px;
-  height: 35px;
-  background-color: #fff;
-  border-radius: 50%;
-  top: -5px;
-  right: 5px;
-}
-
 /* ===========================
    PERFIL
 =========================== */
@@ -231,4 +217,87 @@ footer {
   .foto-perfil {
     margin-bottom: 15px;
   }
+}
+/* ===========================
+   MODO OSCURO
+=========================== */
+body.dark {
+  background-color: #111;
+  color: #eee;
+}
+
+body.dark main {
+  background-color: #222;
+  color: #eee;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+body.dark .ficha-header {
+  background: #333;
+  color: #eee;
+}
+
+body.dark .icono-luna {
+  border-color: #eee;
+}
+
+body.dark .icono-luna::after {
+  background-color: #eee;
+}
+
+body.dark .info-item,
+body.dark .tarjeta-repo {
+  background-color: #333;
+  color: #eee;
+  box-shadow: 0 4px 15px rgba(255,255,255,0.05);
+}
+
+body.dark footer {
+  background-color: #000;
+  color: #eee;
+}
+/* ===========================
+   TEXTO EN MODO OSCURO
+=========================== */
+
+body.dark {
+  color: #fff;
+}
+
+/* Todo texto que DEBE volverse blanco */
+body.dark p,
+body.dark h2,
+body.dark h3:not(.naranja),
+body.dark .info-valor,
+body.dark footer,
+body.dark a {
+  color: #fff !important;
+}
+
+/* Mantener los textos naranjas igual que antes */
+body.dark .info-label,
+body.dark .tarjeta-repo h3,
+body.dark .ficha-header h1 {
+  color: var(--naranja) !important;
+}
+/* Icono blanco en modo claro */
+body:not(.dark) #theme-toggle {
+  color: #fff;
+}
+
+/* Icono naranja en modo oscuro */
+body.dark #theme-toggle {
+  color: var(--naranja);
+}
+/*Icono Sol y luna*/
+#theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+#theme-toggle img {
+  width: 32px;
+  height: 32px;
 }
